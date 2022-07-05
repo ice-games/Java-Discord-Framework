@@ -62,6 +62,31 @@ registerCommands(
 );
 ```
 
+## Context Menus
+### Message Context Menus
+```java
+public class MessageContextMenuExample extends ContextMenu {
+
+    public MessageContextMenuExample() {
+        super("Context Menu", Command.Type.MESSAGE);
+        onSubmitMessage(e -> {
+            e.reply("Hello World!").queue();
+        });
+
+        // Just call a new instance of this class after your build method in your bot class
+    }
+
+}
+```
+
+In your main class, all you need to do is call a new instance of this class, like this:
+```java
+new MessageContextMenuExample();
+```
+
+### User context menus
+The same as before, but just replace `onSubmitMessage`, with `onSubmitUser`.
+
 ## Modals
 
 ### QUICK DISCALIMER

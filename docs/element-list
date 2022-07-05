@@ -1,0 +1,15 @@
+unnamed package
+com.seailz.jdaframework
+com.seailz.jdaframework.command
+com.seailz.jdaframework.command.annotation
+com.seailz.jdaframework.command.listener
+com.seailz.jdaframework.command.option
+com.seailz.jdaframework.command.registry
+com.seailz.jdaframework.contextmenu
+com.seailz.jdaframework.contextmenu.listeners
+com.seailz.jdaframework.contextmenu.registry
+com.seailz.jdaframework.modals
+com.seailz.jdaframework.modals.controller
+com.seailz.jdaframework.modals.listeners
+com.seailz.jdaframework.utils
+com.seailz.test.listeners

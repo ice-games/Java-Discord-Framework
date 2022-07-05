@@ -53,7 +53,22 @@ public class ModalManager {
             throw new IllegalStateException("Interaction is not a SlashCommandInteractionEvent or ButtonInteractionEvent");
 
 
-        modals.add(Map.entry(member, modal));
+        modals.add(new Map.Entry<Member, Modal>() {
+            @Override
+            public Member getKey() {
+                return member;
+            }
+
+            @Override
+            public Modal getValue() {
+                return modal;
+            }
+
+            @Override
+            public Modal setValue(Modal value) {
+                return null;
+            }
+        });
 
     }
 }

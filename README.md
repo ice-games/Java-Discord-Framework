@@ -1,3 +1,6 @@
+#### NOTE: This project will contiue to be updated, and you can find all upcoming features in https://github.com/seailz/Java-Discord-Framework/issues/2
+#### I'm open to suggestions & prs! :)
+
 # Java-Discord-Framework
 Designed to make developing bots faster and simpler!
 

@@ -1,9 +1,12 @@
 package com.seailz.jdaframework;
 
 import com.seailz.jdaframework.command.Command;
+import com.seailz.jdaframework.command.listener.CommandRunListener;
 import com.seailz.jdaframework.command.registry.CommandRegistry;
-import com.seailz.jdaframework.contextmenu.ContextMenu;
+import com.seailz.jdaframework.contextmenu.listeners.MessageContextMenuListener;
+import com.seailz.jdaframework.contextmenu.listeners.UserContextMenuListener;
 import com.seailz.jdaframework.contextmenu.registry.ContextMenuRegistry;
+import com.seailz.jdaframework.modals.listeners.ModalListener;
 import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.JDA;
@@ -12,7 +15,6 @@ import net.dv8tion.jda.api.hooks.EventListener;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
-import java.util.HashMap;
 
 /**
  * Main Discord Bot Class
@@ -36,8 +38,14 @@ public class DiscordBot {
         instance = this;
         registry = new CommandRegistry();
         contextMenuRegistry = new ContextMenuRegistry();
-
         builder = JDABuilder.createDefault(token);
+
+        registerListeners(
+                new MessageContextMenuListener(),
+                new UserContextMenuListener(),
+                new CommandRunListener(),
+                new ModalListener()
+        );
     }
 
     /**
@@ -56,8 +64,13 @@ public class DiscordBot {
      * @return The bot instance
      */
     public DiscordBot registerListeners(ListenerAdapter... listeners) {
+        JDABuilder jdaBuilder = builder;
+        JDA jda = this.jda;
         for (ListenerAdapter listener : listeners) {
-            jda.addEventListener(listener);
+            if (jda == null)
+                jdaBuilder.addEventListeners(listener);
+            else
+                jda.addEventListener(listener);
         }
         return this;
     }
@@ -68,8 +81,13 @@ public class DiscordBot {
      * @return The bot instance
      */
     public DiscordBot registerListeners(EventListener... listeners) {
+        JDABuilder jdaBuilder = builder;
+        JDA jda = this.jda;
         for (EventListener listener : listeners) {
-            jda.addEventListener(listener);
+            if (jda == null)
+                jdaBuilder.addEventListeners(listener);
+            else
+                jda.addEventListener(listener);
         }
         return this;
     }

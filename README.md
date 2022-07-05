@@ -1,5 +1,21 @@
 # Java-Discord-Framework
 Designed to make developing bots faster and simpler!
+
+## Maven
+```xml
+<repository>
+		  <id>jitpack.io</id>
+		  <url>https://jitpack.io</url>
+</repository>
+```
+
+```xml
+<dependency>
+	   <groupId>com.github.seailz</groupId>
+	   <artifactId>java-discord-framework</artifactId>
+	   <version>v1.0</version>
+</dependency>
+ ```
  
 ## Setting up your main class
 In your main class, you need to extend `DiscordBot`, like this:

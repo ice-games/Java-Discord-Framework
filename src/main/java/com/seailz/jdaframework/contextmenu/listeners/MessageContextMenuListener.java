@@ -8,6 +8,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
+/**
+ * Manages the back-end logic of the message context menu
+ * @author Seailz
+ */
 public class MessageContextMenuListener extends ListenerAdapter {
     @Override
     public void onMessageContextInteraction(@NotNull MessageContextInteractionEvent event) {

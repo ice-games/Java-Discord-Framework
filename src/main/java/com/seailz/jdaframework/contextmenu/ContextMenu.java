@@ -9,6 +9,10 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 
 import java.util.function.Consumer;
 
+/**
+ * Create ContextMenus with ease!
+ * @author Seailz
+ */
 @Getter
 public class ContextMenu {
 
@@ -21,11 +25,19 @@ public class ContextMenu {
         ).queue();
     }
 
+    /**
+     * If you're using a User context menu
+     * @param consumer the consumer to run when the user submits the context menu
+     */
     public void onSubmitUser(Consumer<UserContextInteractionEvent> consumer) {
         if (onSubmitMessage != null) return;
         onSubmitUser = consumer;
     }
 
+    /**
+     * If you're using a Message context menu
+     * @param consumer the consumer to run when the message submits the context menu
+     */
     public void onSubmitMessage(Consumer<MessageContextInteractionEvent> consumer) {
         if (onSubmitUser != null) return;
         onSubmitMessage = consumer;

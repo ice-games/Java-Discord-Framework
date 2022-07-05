@@ -10,6 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
+/**
+ * Manages the back-end logic of the user context menu
+ * @author Seailz
+ */
 public class UserContextMenuListener extends ListenerAdapter {
     @Override
     public void onUserContextInteraction(@NotNull UserContextInteractionEvent event) {

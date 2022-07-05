@@ -24,6 +24,10 @@ Making commands with this framework is really easy, here's an example:
 import com.seailz.jdaframework.command.Command;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
+@CommandInfo(
+  name = "epiccommand",
+  description = "This is such an epic command!"
+)
 public class CommandExample extends Command {
     @Override
     public void onCommand(SlashCommandInteractionEvent e) {

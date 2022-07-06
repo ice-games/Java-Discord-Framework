@@ -4,7 +4,10 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 1.1     | :white_check_mark: |
 | 1.0     | :white_check_mark: |
+
+*Please note if a version listed here is supported for security vulnerabilities, that does not mean that we will give general support on that version.*
 
 ## Reporting a Vulnerability
 

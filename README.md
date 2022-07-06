@@ -14,7 +14,7 @@ Designed to make developing bots faster and simpler!
 
 ```xml
 <dependency>
-	<groupId>com.github.seailz</groupId>
+	<groupId>com.github.ice-games</groupId>
 	<artifactId>java-discord-framework</artifactId>
 	<version>v1.0</version>
 </dependency>

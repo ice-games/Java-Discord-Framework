@@ -24,6 +24,7 @@ public class ModalListener extends ListenerAdapter {
             if (modalEntry.getValue().getId().equals(e.getModalId()) && modalEntry.getKey().getId().equals(e.getMember().getId())){
                 ModalMapping[] mappings = e.getValues().toArray(new ModalMapping[0]);
                 modalEntry.getValue().getOnSubmit().accept(e.getMember(), mappings, e);
+                break;
             }
         }
     }

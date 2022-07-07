@@ -11,6 +11,6 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 public class TestCommand extends Command {
     @Override
     public void onCommand(SlashCommandInteractionEvent e) {
-        e.reply("hi").queue();
+        new TestModal().open(e.getMember(), e);
     }
 }

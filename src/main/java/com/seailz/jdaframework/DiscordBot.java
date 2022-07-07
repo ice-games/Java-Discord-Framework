@@ -1,5 +1,6 @@
 package com.seailz.jdaframework;
 
+import com.seailz.jdaframework.button.ButtonListener;
 import com.seailz.jdaframework.command.Command;
 import com.seailz.jdaframework.command.listener.CommandRunListener;
 import com.seailz.jdaframework.command.registry.CommandRegistry;
@@ -11,10 +12,13 @@ import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
+import java.util.HashMap;
+import java.util.function.Consumer;
 
 /**
  * Main Discord Bot Class
@@ -26,6 +30,8 @@ public class DiscordBot {
 
     @Getter
     private static DiscordBot instance;
+    @Getter
+    private static HashMap<String, Consumer<ButtonInteractionEvent>> buttonRegistry;
     private String token;
     private JDA jda;
     private JDABuilder builder;
@@ -40,11 +46,14 @@ public class DiscordBot {
         contextMenuRegistry = new ContextMenuRegistry();
         builder = JDABuilder.createDefault(token);
 
+        buttonRegistry = new HashMap<>();
+
         registerListeners(
                 new MessageContextMenuListener(),
                 new UserContextMenuListener(),
                 new CommandRunListener(),
-                new ModalListener()
+                new ModalListener(),
+                new ButtonListener()
         );
     }
 

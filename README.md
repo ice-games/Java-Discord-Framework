@@ -1,4 +1,4 @@
-#### NOTE: This project will contiue to be updated, and you can find all upcoming features in https://github.com/seailz/Java-Discord-Framework/issues/2
+#### NOTE: This project will contiue to be updated, and you can find all upcoming features in https://github.com/seailz/Java-Discord-Framework/issues/
 #### I'm open to suggestions & prs! :)
 
 # Java-Discord-Framework

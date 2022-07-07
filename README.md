@@ -16,7 +16,7 @@ Designed to make developing bots faster and simpler!
 <dependency>
 	<groupId>com.github.ice-games</groupId>
 	<artifactId>java-discord-framework</artifactId>
-	<version>1.1.3</version>
+	<version>1.1.4</version>
 </dependency>
  ```
  
@@ -88,15 +88,6 @@ new MessageContextMenuExample();
 The same as before, but just replace `onSubmitMessage`, with `onSubmitUser`.
 
 ## Modals
-
-### QUICK DISCALIMER
-You **must** include this line in your main class:
-```java
-        jdaInstanceVariable.addEventListener(new ModalListener());
-```
-
-If you don't, it will not work.
-I may try to find a way around this in the future, but for now, that's how it is.
 
 ```java
 public class ModalExample extends Modal {

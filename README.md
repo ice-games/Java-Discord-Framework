@@ -120,3 +120,10 @@ public class ModalCommand extends ListenerAdapter {
 
 }
 ```
+
+## Buttons
+```java
+ButtonManager.listen(Button.secondary("epic-button", "Don't you agree?"), event -> {
+       event.reply("You clicked the epic button!").queue();
+});
+```

@@ -21,7 +21,7 @@ public class CommandRegistry {
     }
 
     public void registerCommand(JDA jda, Command command) {
-        if (!commands.containsValue(command)) return;
+        if (commands.containsValue(command)) return;
         if (command.getOptions().isEmpty()) {
             jda.upsertCommand(command.getName(), command.getDescription()).queue();
         } else {

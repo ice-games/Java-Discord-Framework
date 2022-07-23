@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class CommandRunListener extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
-        if (DiscordBot.getInstance().getRegistry().getCommands().containsKey(event.getName())) {
+        if (DiscordBot.getInstance().getRegistry().getCommands().containsKey(event.getName()))
             DiscordBot.getInstance().getRegistry().getCommands().get(event.getName()).onCommand(event);
-        }
     }
 }

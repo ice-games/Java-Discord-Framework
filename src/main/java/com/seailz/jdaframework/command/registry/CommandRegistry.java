@@ -27,7 +27,7 @@ public class CommandRegistry {
         } else {
             CommandCreateAction action = jda.upsertCommand(command.getName(), command.getDescription());
             command.getOptions().forEach(option -> {
-                action.addOption(option.getType(), option.getName(), option.getDescription(), option.isRequired()).queue();
+                action.addOption(option.getType(), option.getName(), option.getDescription(), option.isRequired());
             });
             action.queue();
         }

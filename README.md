@@ -1,4 +1,4 @@
-#### NOTE: This project will contiue to be updated, and you can find all upcoming features in https://github.com/seailz/Java-Discord-Framework/issues/2
+#### NOTE: This project will contiue to be updated, and you can find all upcoming features in https://github.com/seailz/Java-Discord-Framework/issues/
 #### I'm open to suggestions & prs! :)
 
 # Java-Discord-Framework
@@ -16,7 +16,7 @@ Designed to make developing bots faster and simpler!
 <dependency>
 	<groupId>com.github.ice-games</groupId>
 	<artifactId>java-discord-framework</artifactId>
-	<version>1.1.4</version>
+	<version>1.2</version>
 </dependency>
  ```
  
@@ -119,4 +119,11 @@ public class ModalCommand extends ListenerAdapter {
     }
 
 }
+```
+
+## Buttons
+```java
+ButtonManager.listen(Button.secondary("epic-button", "Don't you agree?"), event -> {
+       event.reply("You clicked the epic button!").queue();
+});
 ```

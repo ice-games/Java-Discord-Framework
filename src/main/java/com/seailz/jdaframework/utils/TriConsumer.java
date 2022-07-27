@@ -35,6 +35,7 @@ import java.util.Objects;
  * @param <T>  Type
  * @param <U>  Value 1
  * @param <U1> Value 2
+ * @author Negative - https://www.github.com/negative-games
  */
 @FunctionalInterface
 public interface TriConsumer<T, U, U1> {

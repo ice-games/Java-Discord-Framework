@@ -20,16 +20,18 @@ import java.util.Map;
 public class ModalListener extends ListenerAdapter {
 
     @Override
-    public void onModalInteraction(@NotNull ModalInteractionEvent e){
+    public void onModalInteraction(@NotNull ModalInteractionEvent e)  {
+        Map.Entry<Member, Modal> culprit = null;
         for (Map.Entry<Member, Modal> modalEntry : ModalManager.getModals()) {
-            if (modalEntry.getValue().getId().equals(e.getModalId()) && modalEntry.getKey().getId().equals(e.getMember().getId())){
+            if (modalEntry.getValue().getId().equals(e.getModalId()) && modalEntry.getKey().getId().equals(e.getMember().getId())) {
                 ModalMapping[] mappings = e.getValues().toArray(new ModalMapping[0]);
                 modalEntry.getValue().getOnSubmit().accept(e.getMember(), mappings, e);
-                try {
-                    ModalManager.getModals().remove(modalEntry);
-                } catch (ConcurrentModificationException ignored) {}
+                culprit = modalEntry;
+                break;
             }
         }
-    }
 
+        if (culprit != null)
+            ModalManager.getModals().remove(culprit);
+    }
 }

@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
@@ -118,6 +119,19 @@ public class DiscordBot {
     public DiscordBot registerCommands(Command... commands) {
         for (Command command : commands) {
             registry.registerCommand(jda, command);
+        }
+        return this;
+    }
+
+    /**
+     * Registers commands. These commands will <b>ONLY</b> show up in the guild you register them in, and not in DMs or any other server.
+     * @param guild The guild to register them for
+     * @param commands The commands to register
+     * @return The bot instance
+     */
+    public DiscordBot registerGuildCommand(Guild guild, Command... commands) {
+        for (Command command : commands) {
+            registry.registerGuildCommand(command, guild);
         }
         return this;
     }

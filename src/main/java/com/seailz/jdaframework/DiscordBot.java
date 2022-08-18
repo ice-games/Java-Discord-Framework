@@ -47,6 +47,7 @@ public class DiscordBot {
         builder = JDABuilder.createDefault(token);
 
         buttonRegistry = new HashMap<>();
+        selectRegistry = new HashMap<>();
 
         registerListeners(
                 new MessageContextMenuListener(),

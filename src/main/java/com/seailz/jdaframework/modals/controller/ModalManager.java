@@ -5,6 +5,7 @@ import lombok.Getter;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.interactions.Interaction;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.ItemComponent;
@@ -49,8 +50,11 @@ public class ModalManager {
         } else if (interaction instanceof ButtonInteractionEvent) {
             ButtonInteractionEvent e = (ButtonInteractionEvent) interaction;
             e.replyModal(jdaModal.build()).queue();
+        } else if (interaction instanceof SelectMenuInteractionEvent) {
+            SelectMenuInteractionEvent e = (SelectMenuInteractionEvent) interaction;
+            e.replyModal(jdaModal.build()).queue();
         } else
-            throw new IllegalStateException("Interaction is not a SlashCommandInteractionEvent or ButtonInteractionEvent");
+            throw new IllegalStateException("Interaction is not a SlashCommandInteractionEvent, SelectMenuInteractionEvent or ButtonInteractionEvent");
 
 
         modals.add(new Map.Entry<Member, Modal>() {

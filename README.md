@@ -16,7 +16,7 @@ Designed to make developing bots faster and simpler!
 <dependency>
 	<groupId>com.github.ice-games</groupId>
 	<artifactId>java-discord-framework</artifactId>
-	<version>1.2</version>
+	<version>1.4</version>
 </dependency>
  ```
  

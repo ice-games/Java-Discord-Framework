@@ -8,11 +8,13 @@ import com.seailz.jdaframework.contextmenu.listeners.MessageContextMenuListener;
 import com.seailz.jdaframework.contextmenu.listeners.UserContextMenuListener;
 import com.seailz.jdaframework.contextmenu.registry.ContextMenuRegistry;
 import com.seailz.jdaframework.modals.listeners.ModalListener;
+import com.seailz.jdaframework.select.SelectMenuListener;
 import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -32,6 +34,10 @@ public class DiscordBot {
     private static DiscordBot instance;
     @Getter
     private static HashMap<String, Consumer<ButtonInteractionEvent>> buttonRegistry;
+
+    @Getter
+    private static HashMap<String, Consumer<SelectMenuInteractionEvent>> selectRegistry;
+
     private String token;
     private JDA jda;
     private JDABuilder builder;
@@ -54,7 +60,8 @@ public class DiscordBot {
                 new UserContextMenuListener(),
                 new CommandRunListener(),
                 new ModalListener(),
-                new ButtonListener()
+                new ButtonListener(),
+                new SelectMenuListener()
         );
     }
 

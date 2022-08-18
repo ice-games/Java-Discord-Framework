@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.modals.ModalMapping;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ConcurrentModificationException;
 import java.util.Map;
 
 /**
@@ -19,14 +20,18 @@ import java.util.Map;
 public class ModalListener extends ListenerAdapter {
 
     @Override
-    public void onModalInteraction(@NotNull ModalInteractionEvent e){
+    public void onModalInteraction(@NotNull ModalInteractionEvent e)  {
+        Map.Entry<Member, Modal> culprit = null;
         for (Map.Entry<Member, Modal> modalEntry : ModalManager.getModals()) {
-            if (modalEntry.getValue().getId().equals(e.getModalId()) && modalEntry.getKey().getId().equals(e.getMember().getId())){
+            if (modalEntry.getValue().getId().equals(e.getModalId()) && modalEntry.getKey().getId().equals(e.getMember().getId())) {
                 ModalMapping[] mappings = e.getValues().toArray(new ModalMapping[0]);
                 modalEntry.getValue().getOnSubmit().accept(e.getMember(), mappings, e);
-                ModalManager.getModals().remove(modalEntry);
+                culprit = modalEntry;
+                break;
             }
         }
-    }
 
+        if (culprit != null)
+            ModalManager.getModals().remove(culprit);
+    }
 }

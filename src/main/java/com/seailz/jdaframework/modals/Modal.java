@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.interactions.components.ItemComponent;
 import net.dv8tion.jda.api.interactions.modals.ModalMapping;
 
@@ -63,6 +64,15 @@ public class Modal {
      * @param interaction The interaction to reply to
      */
     public void open(Member member, SlashCommandInteractionEvent interaction) {
+        ModalManager.open(this, member, interaction);
+    }
+
+    /**
+     * Opens the modal
+     * @param member The member to show the modal to
+     * @param interaction The interaction to reply to
+     */
+    public void open(Member member, SelectMenuInteractionEvent interaction) {
         ModalManager.open(this, member, interaction);
     }
 

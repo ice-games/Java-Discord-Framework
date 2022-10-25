@@ -5,7 +5,7 @@ import lombok.Getter;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.GenericSelectMenuInteractionEvent;
 import net.dv8tion.jda.api.interactions.Interaction;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.ItemComponent;
@@ -36,7 +36,7 @@ public class ModalManager {
             components.add(component.apply(member));
         });
 
-        net.dv8tion.jda.api.interactions.components.Modal.Builder jdaModal = net.dv8tion.jda.api.interactions.components.Modal.create(
+        net.dv8tion.jda.api.interactions.modals.Modal.Builder jdaModal = net.dv8tion.jda.api.interactions.modals.Modal.create(
                 modal.getId(), modal.getTitle()
         );
 
@@ -50,8 +50,8 @@ public class ModalManager {
         } else if (interaction instanceof ButtonInteractionEvent) {
             ButtonInteractionEvent e = (ButtonInteractionEvent) interaction;
             e.replyModal(jdaModal.build()).queue();
-        } else if (interaction instanceof SelectMenuInteractionEvent) {
-            SelectMenuInteractionEvent e = (SelectMenuInteractionEvent) interaction;
+        } else if (interaction instanceof GenericSelectMenuInteractionEvent) {
+            GenericSelectMenuInteractionEvent e = (GenericSelectMenuInteractionEvent) interaction;
             e.replyModal(jdaModal.build()).queue();
         } else
             throw new IllegalStateException("Interaction is not a SlashCommandInteractionEvent, SelectMenuInteractionEvent or ButtonInteractionEvent");

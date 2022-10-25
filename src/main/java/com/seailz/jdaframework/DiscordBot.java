@@ -15,9 +15,11 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.GenericSelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.components.selections.EntitySelectMenu;
 
 import javax.security.auth.login.LoginException;
 import java.util.HashMap;
@@ -37,7 +39,7 @@ public class DiscordBot {
     private static HashMap<String, Consumer<ButtonInteractionEvent>> buttonRegistry;
 
     @Getter
-    private static HashMap<String, Consumer<SelectMenuInteractionEvent>> selectRegistry;
+    private static HashMap<String, Consumer<GenericSelectMenuInteractionEvent>> selectRegistry;
 
     private String token;
     private JDA jda;

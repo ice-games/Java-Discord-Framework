@@ -11,13 +11,13 @@ body:
   - type: checkboxes
     attributes:
       label: General Troubleshooting
-      description: "Make sure you''ve done these things first:"
+      description: "Make sure you've done these things first:"
       options:
-        - label: You''ve have checked for similar issues.
+        - label: You've have checked for similar issues.
           required: true
-        - label: You''ve updated to the latest version of the API
+        - label: You've updated to the latest version of the API
           required: true
-        - label: You''ve have checked the PR''s for bug fixes relating to your issue.
+        - label: You've have checked the PR's for bug fixes relating to your issue.
           required: true
   - type: textarea
     attributes:

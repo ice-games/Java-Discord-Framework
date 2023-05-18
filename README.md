@@ -1,5 +1,4 @@
-#### NOTE: This project will contiue to be updated, and you can find all upcoming features in https://github.com/seailz/Java-Discord-Framework/issues/
-#### I'm open to suggestions & prs! :)
+#### NOTE: This project will not continue to be updated.<br> However, I'm working on my own Discord API library that implements many of the same designs and features of JDF.<br> See here: http://i.slz.lol/go/lxKLxA
 
 # Java-Discord-Framework
 Designed to make developing bots faster and simpler!
